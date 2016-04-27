@@ -1,15 +1,15 @@
 #!/bin/sh
-files=`find . -perm /u+x`
-#echo $files
+# rm *.o
+find -name *.o | xargs rm
+# find all files that can be executable
+files=`find . -perm /u+x | grep -v "DelXFile" `
+# echo $files
 for file in $files
 do
 #    echo $file
     if [ -f $file ]
     then
-        if [[ ! ${file} =~ "DelXFile.sh" ]]
-        then
-            rm $file
-        fi
+        rm $file
     fi
 done
 
