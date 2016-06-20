@@ -1,5 +1,5 @@
 #!/bin/sh
-# rm *.o
+set -e
 find -name *.o | xargs rm
 # find all files that can be executable
 files=`find . -perm /u+x | grep -v "DelXFile" `
